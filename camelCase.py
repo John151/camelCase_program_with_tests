@@ -1,7 +1,15 @@
 def camel_case(sentence):
     # convert sentence into camel case
+
+    # remove input characters and escape characters
+    bad_input = ['\n', '\t', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')']
+    for i in bad_input:
+        sentence = sentence.replace(i, '')
+
+    # remove spaces
     title_case = sentence.title()
     upper_camel_cased = title_case.replace(' ', '')
+
     return upper_camel_cased[0:1].lower() + upper_camel_cased[1:]
 
 def main():
